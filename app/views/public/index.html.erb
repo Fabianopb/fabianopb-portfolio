@@ -1,2 +1,139 @@
-<h1>Public#index</h1>
-<p>Find me in app/views/public/index.html.erb</p>
+<nav>
+	<ul>
+		<li>
+			<a title="About me" href="#">About me</a>
+		</li>
+		<li>
+			<a title="Work" href="#">Work</a>
+		</li>
+		<li>
+			<a title="Contact" href="#">Contact</a>
+		</li>
+	</ul>
+</nav>
+
+
+
+<header class="index">
+
+	<a class="logo" title="Fabiano Paiva" href="#"><h3>Fabiano Paiva</h3></a>
+	<div class="hero">
+		<h2>Hey, I´m Fabiano Paiva</h2>
+		<p>a business designer with engineering background and a strong entrepreneurial spirit currently based in Helsinki.<br /><br />
+		Take a look at this selection of projects I worked on.</p>
+		<a class="show-btn" title="Show me" href="#">Show me</a>
+	</div>
+
+</header>
+
+
+
+<section class="about">
+
+	<h1>About me</h1>
+<div>
+	<aside class="picture">
+	    <img alt="That's me!" src="/assets/fabiano.png">
+	</aside>
+	
+	<aside class="caption">
+		<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo ipsum quis augue blandit convallis. </p>
+		<blockquote>
+			<p>Suspendisse at neque ante. Curabitur in pharetra turpis.</p>
+		</blockquote>
+	</aside>
+	
+	<article>
+		<p>Nullam ultricies justo ut nibh hendrerit, nec finibus ante porttitor. Donec sit amet libero a nulla tempus laoreet a quis elit. Aliquam convallis enim vel arcu lacinia euismod eget vitae neque. Morbi porta augue interdum pulvinar imperdiet. Ut aliquet tempus odio, nec volutpat lacus consectetur non. Cras bibendum urna sed tortor efficitur, a tristique dolor porttitor. Vivamus malesuada enim ac sapien porttitor, ac iaculis magna tristique. Integer ex erat, hendrerit non fringilla eget, tristique vitae dui. Vestibulum ante diam, interdum ac erat posuere, lacinia dignissim nisl. Curabitur non lacinia augue, ut pretium sem. Morbi diam diam, rhoncus pretium ligula eu, imperdiet volutpat velit.</p>
+	</article>
+</div>
+</section>
+
+<hr>
+
+<section class="skills">
+
+	<h1>Skills</h1>
+
+	<article>
+
+		<!-- divs created programmatically and "weight" and "content" added according to skill level -->
+
+		<div class="back">
+			<div class="level">
+				<div class="skill">Coding</div>
+			</div>
+		</div>
+		<div class="back">
+			<div class="level">
+				<div class="skill">Design</div>
+			</div>
+		</div>
+		<div class="back">
+			<div class="level">
+				<div class="skill">Business</div>
+			</div>
+		</div>
+
+	</article>
+
+</section>
+
+<hr>
+
+<section class="work">
+
+	<h1>Selected Work</h1>
+
+	<div>			
+		<!-- The asides should be created programmatically -->
+		<aside>
+			<a title="Tanzania" href="#">
+			    <%= image_tag('work1.png', :alt => 'Tanzania') %>
+			</a>
+		</aside>
+		<aside>
+			<a title="IDBM" href="#">
+			    <%= image_tag('work2.png', :alt => 'IDBM') %>
+			</a>
+		</aside>
+		<aside>
+			<a title="Hello Ruby" href="#">
+			    <%= image_tag('work3.png', :alt => 'Hello Ruby') %>
+			</a>
+		</aside>
+		<aside>
+			<a title="Promon" href="#">
+			    <%= image_tag('work4.png', :alt => 'Promon') %>
+			</a>
+		</aside>
+	</div>
+
+</section>
+
+
+
+<footer><!-- should be kept in a partial -->
+
+	<div class="footer">
+		<h4>Get in touch!</h4>
+		<a class="e-mail" title="fabianopbrito@gmail.com" href="mailto:fabianopbrito@gmail.com">fabianopbrito@gmail.com</a></p>
+		<aside>
+			<a title="Twitter" href="https://twitter.com/fabianopaivab" target="_blank">
+			    <%= image_tag('twitter.svg', :alt => 'Twitter') %>
+			</a>
+		</aside>
+		<aside>
+			<a title="LinkedIn" href="https://linkedin.com/in/fabianopb" target="_blank">
+			    <%= image_tag('linkedin.svg', :alt => 'LinkedIn') %>
+			</a>
+		</aside>
+		<aside>
+			<a title="GitHub" href="https://github.com/Fabianopb" target="_blank">
+			    <%= image_tag('github.svg', :alt => 'GitHub') %>
+			</a>
+		</aside>
+		<p class="copyright">&copy; Fabiano Brito. This website was developed using Ruby on Rails platform.</p>
+	</div>
+
+</footer>
