@@ -11,12 +11,56 @@
 	</head>
 
 	<body>
+		
+		<div class="navigation">
+			<nav>
+				<ul>
+					<li>
+						<a title="Contact" href="#">Contact</a>
+					</li>
+					<li>
+						<a title="Work" href="#">Work</a>
+					</li>
+					<li>
+						<a title="About me" href="#">About me</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
 
 		<div id="page">
 			
 			<%= yield %>
 			
 		</div>
+
+		<footer><!-- should be kept in a partial -->
+		
+			<div class="footer">
+				<h4>Get in touch!</h4>
+				<a class="e-mail" title="fabianopbrito@gmail.com" href="mailto:fabianopbrito@gmail.com">fabianopbrito@gmail.com</a></p>
+				<aside>
+					<a title="Twitter" href="https://twitter.com/fabianopaivab" target="_blank">
+					    <%= image_tag('twitter.svg', :alt => 'Twitter') %>
+					</a>
+				</aside>
+				<aside>
+					<a title="LinkedIn" href="https://linkedin.com/in/fabianopb" target="_blank">
+					    <%= image_tag('linkedin.svg', :alt => 'LinkedIn') %>
+					</a>
+				</aside>
+				<aside>
+					<a title="GitHub" href="https://github.com/Fabianopb" target="_blank">
+					    <%= image_tag('github.svg', :alt => 'GitHub') %>
+					</a>
+				</aside>
+				<p class="copyright">&copy; Fabiano Brito. This website was developed using Ruby on Rails platform.</p>
+			</div>
+		
+		</footer>
+
+			
+		
 
 	</body>
 

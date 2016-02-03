@@ -17,7 +17,7 @@ body {
 }
 
 #page {
-	max-width: 1000px; margin: 0 auto; position: relative;
+	max-width: 1000px; margin: 0 auto;
 }
 
 h1 {
@@ -55,9 +55,17 @@ hr {
 
 /****** NAVIGATION ******/
 
-nav {
+.navigation {
 	background-color: rgba(0, 0, 0, .65);
 	position: absolute; top: 0px; left: 0px;
+	padding: 0;
+	width: 100%; height: 60px;
+	z-index: 1;
+	margin: auto;
+}
+
+nav {
+	margin: auto; max-width: 1000px;
 	padding: 0;
 	width: 100%;
 	z-index: 1;
@@ -69,20 +77,18 @@ nav::after {
 
 nav ul {
 	list-style: none; margin: 0; padding: 0;
-	margin: auto;
-	padding-left: 50%;
 }
 
 nav ul li {
-	float: left;
+	float: right;
 }
 
 nav ul li a {
 	display: inline-block;
 	color: #fff;
-	padding: 20px 20px;
+	padding: 20px 0;
 	text-decoration: none;
-	width: 80px;
+	width: 120px;
 	position: relative;
 	text-align: center;
 }
@@ -97,18 +103,28 @@ nav ul li a:visited {
 
 /****** HEADER ******/
 
-header.index {
-	height: 446px; background: #056C98 url(/assets/header2_1000.png) no-repeat center bottom; position: relative;
+.index {
+	height: 440px; position: relative;
 }
 
-header a.logo {
+.background {
+	width: 100%; height: 440px;
+	background: #056C98 url(/assets/header2_1600.png) no-repeat center bottom;
+	position: absolute; left: 0; top: 0;
+}
+
+.show {
+	height: 80px; position: relative;
+}
+
+header .logo {
 	z-index: 2;
 	position: absolute;	display: block; 
 	top: 0; left: 0; padding: 13px 20px 13px 20px;
 	color: #fff; text-decoration: none; font-weight: 400;
 }
 
-header div.hero {
+header .hero {
 	position: absolute; 
 	margin: auto; width: 60%; top: 130px; left: 20%;
 	text-align: center;
@@ -148,7 +164,7 @@ section.about div {
 	padding: 0 80px;
 }
 
-section.about div aside.picture {
+section.about div .picture {
 	width: 40%; float: left;
 }
 
@@ -176,7 +192,7 @@ section.about div aside.caption blockquote p::before {
 }
 
 section.about div aside.caption blockquote p::after {
-	content: '\201d'; font-family: serif; font-style: bold;
+	content: '\201d'; font-family: serif; font-style: oblique;
 }
 
 section.about div aside img {
@@ -194,7 +210,7 @@ section.skills article {
 	padding: 0 80px 40px 80px;
 }
 
-section.skills article div.back {
+section.skills article .back {
 	position: relative;
 	margin-bottom: 10px;
 	width: 100%;
@@ -219,7 +235,7 @@ section.skills article div.level::after {
 
 section.skills article .skill {
 	line-height: 30px; padding-left: 10px; color: #F2F1F0; font-weight: 400; font-size: 1.1em;
-	width: 100px;
+	max-width: 100px;
 	height: 30px;
 	background: rgba(0, 0, 0, 0.1);
 	border-radius: 5px;
@@ -236,10 +252,55 @@ section.work div aside {
 	float: left;
 }
 
+/****** SECTION PROJECT-DETAILS ******/
+
+section.project-details {
+	position: relative;
+	padding-top: 30px;
+	padding-bottom: 80px;
+}
+
+section.project-details .project-nav-back {
+	position: absolute; left: 10px;
+}
+
+section.project-details .project-nav-next {
+	position: absolute; right: 10px;
+}
+
+section article {
+	margin: 60px 0;
+}
+
+section article .abstract {
+	font-size: 1.2em; margin-bottom: 30px;
+}
+
+section.project-details .showroom {
+	position: relative;
+}
+
+section.project-details img {
+	max-width: 60%; margin: 10px 0;
+}
+
+section.project-details .story {
+	position: absolute; top: 10px; left: 62%; font-size: .9em;
+}
+
+section.project-details .facts {
+	font-size: 2.2em; margin-top: 30px; color: #FFA734;
+}
+
+
 /****** FOOTER ******/
 
 footer {
-	background: #3F525A; color: #fff; text-align: center; padding: 20px 0;
+	background: #3F525A; color: #fff; padding: 20px 0;
+}
+
+footer .footer {
+	max-width: 1000px; margin: auto; text-align: center;
 }
 
 footer a {
@@ -251,10 +312,10 @@ footer aside {
 }
 
 footer img {
-	width: 48px; padding: 0 20px;
+	width: 48px; margin: 0 20px;
 }
 
-footer p.copyright {
+footer .copyright {
 	font-size: .8em;
 	padding: 18px 0 0 0; margin: 0;
 }
