@@ -1,0 +1,21 @@
+<h1>Skills index</h1>
+<p>View, edit, add and delete skills</p>
+<%= link_to("Add new skill", :action => 'new') %>
+<table>
+    <tr>
+        <th>Skill</th>
+        <th>Level</th>
+        <th>Actions</th>
+    </tr>
+    <% @skills.each do |skill| %>
+    <tr>
+        <td><%= skill.skill_name %></td>
+        <td><%= skill.level %></td>
+        <td>
+            <%= link_to("Edit", {:action => 'edit', :id => skill.id}) %>
+            <%= link_to("Delete", {:action => 'delete', :id => skill.id}) %>
+        </td>
+    </tr>
+    <% end %>
+   
+</table>

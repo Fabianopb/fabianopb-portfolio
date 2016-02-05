@@ -44,22 +44,17 @@
 	<article>
 
 		<!-- divs created programmatically and "weight" and "content" added according to skill level -->
-
-		<div class="back">
-			<div class="level">
-				<div class="skill">Coding</div>
+		
+		<% @skills.each do |skill| %>
+			
+			<div class="back">
+				<div class="level" style="width: <%= skill.level%>%;">
+					<div class="value"><%= skill.level %>%</div>
+					<div class="skill"><%= skill.skill_name %></div>
+				</div>
 			</div>
-		</div>
-		<div class="back">
-			<div class="level">
-				<div class="skill">Design</div>
-			</div>
-		</div>
-		<div class="back">
-			<div class="level">
-				<div class="skill">Business</div>
-			</div>
-		</div>
+		
+		<% end %>
 
 	</article>
 

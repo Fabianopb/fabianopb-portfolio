@@ -1,0 +1,19 @@
+<h1>Add new skill</h1>
+<p>Enter the required data</p>
+<%= form_for(:skill, :url => {:action => 'create'}) do |f| %>
+
+    <table>
+        <tr>
+            <th><%= f.label(:skill_name, "Skill") %></th>
+            <td><%= f.text_field(:skill_name) %></td>
+        </tr>
+        <tr>
+            <th><%= f.label(:level, "Level") %></th>
+            <td><%= f.number_field(:level, in: 1..100, step: 1) %></td>
+        </tr>
+    </table>
+    <div class="form-btn">
+        <%= submit_tag("Create skill") %>
+    </div>
+
+<% end %>
