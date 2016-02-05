@@ -1,0 +1,10 @@
+ <table>
+    <tr>
+        <th><%= f.label(:skill_name, "Skill") %></th>
+        <td><%= f.text_field(:skill_name) %></td>
+    </tr>
+    <tr>
+        <th><%= f.label(:level, "Level") %></th>
+        <td><%= f.number_field(:level, in: 0..100, step: 5) %></td>
+    </tr>
+</table>

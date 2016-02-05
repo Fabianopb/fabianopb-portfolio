@@ -1,2 +1,11 @@
-<h1>Skills#edit</h1>
-<p>Find me in app/views/skills/edit.html.erb</p>
+<h1>Edit skills</h1>
+
+<%= form_for(:skill, :url => {:action => 'update', :id => @skill.id}) do |f| %>
+
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+    
+    <div class="form-btn">
+        <%= submit_tag("Update skill") %>
+    </div>
+    
+<% end %>
