@@ -1,2 +1,14 @@
-<h1>Projects#edit</h1>
-<p>Find me in app/views/projects/edit.html.erb</p>
+<h1>Edit projects</h1>
+
+<%= link_to("Back to list", {:action => 'show', :id => @project.id}) %>
+
+<%= form_for(:project, :url => {:action => 'update', :id => @project.id}) do |f| %>
+
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+    
+    <div class="form-btn">
+        <%= submit_tag("Update project") %>
+    </div>
+    
+<% end %>
+

@@ -1,2 +1,13 @@
-<h1>Projects#delete</h1>
-<p>Find me in app/views/projects/delete.html.erb</p>
+<h1>Delete project</h1>
+
+<%= link_to("Back to list", :action => 'index') %>
+
+<%= form_for(:project, :url => {:action => 'destroy', :id => @project.id}) do |f| %>
+
+    <p>Are you sure you want do delete the project <%= @project.title %>?</p>
+    
+    <div class="form-btn">
+        <%= submit_tag("Delete project") %>
+    </div>
+    
+<% end %>

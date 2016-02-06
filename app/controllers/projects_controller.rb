@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.sorted
   end
+  
+  def show
+    @project = Project.find(params[:id])
+  end
 
   def new
     @project = Project.new
@@ -44,7 +48,7 @@ class ProjectsController < ApplicationController
   private
   
   def project_params
-    params.require(:project).permit(:title, :caption, :abstract, :text, :facts)
+    params.require(:project).permit(:title, :caption, :abstract, :text, :facts, :image1, :image2, :thumbnail)
   end
   
 end

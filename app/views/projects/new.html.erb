@@ -1,2 +1,13 @@
-<h1>Projects#new</h1>
-<p>Find me in app/views/projects/new.html.erb</p>
+<h1>Add new project</h1>
+
+<%= link_to("Back to list", :action => 'index') %>
+
+<%= form_for(:project, :url => {:action => 'create'}) do |f| %>
+
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+    
+    <div class="form-btn">
+        <%= submit_tag("Create project") %>
+    </div>
+
+<% end %>

@@ -1,0 +1,34 @@
+<table>
+    <tr>
+        <th><%= f.label(:title) %></th>
+        <td><%= f.text_field(:title) %></td>
+    </tr>
+    <tr>
+        <th><%= f.label(:caption) %></th>
+        <td><%= f.text_field(:caption) %></td>
+    </tr>
+    <tr>
+        <th><%= f.label(:abstract) %></th>
+        <td><%= f.text_field(:abstract) %></td>
+    </tr>
+    <tr>
+        <th><%= f.label(:text) %></th>
+        <td><%= f.text_area(:text, :size => '45x15') %></td>
+    </tr>
+    <tr>
+        <th><%= f.label(:facts) %></th>
+        <td><%= f.text_field(:facts) %></td>
+    </tr>
+    <tr>
+        <th><%= f.label(:thumbnail) %></th>
+        <td><%= f.file_field(:thumbnail) %></td>
+    </tr>
+    <tr>
+        <th><%= f.label(:image1) %></th>
+        <td><%= f.file_field(:image1) %></td>
+    </tr>
+    <tr>
+        <th><%= f.label(:image2) %></th>
+        <td><%= f.file_field(:image2) %></td>
+    </tr>
+</table>
