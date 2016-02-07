@@ -1,24 +1,8 @@
 Rails.application.routes.draw do
-  
-  # get 'projects/index'
-
-  # get 'projects/new'
-
-  # get 'projects/edit'
-
-  # get 'projects/delete'
-
-  # get 'skills/index'
-
-  # get 'skills/new'
-
-  # get 'skills/edit'
-
-  # get 'skills/delete'
 
   root 'public#index'
   
-  get 'show', :to => 'public#show'
+  get 'admin', :to => "access#index"
   
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
