@@ -1,0 +1,11 @@
+<% if Project.where("id < ?", params[:id]).exists? then %>
+	<%= link_to('<< Previous project', {:action => 'prev_proj', :id => @project.id}, :class => 'project-nav-back') %>
+<% else %>
+	<%= raw('<p class="project-nav-back"><< Previous project</p>') %>
+<% end %>
+
+<% if Project.where("id > ?", params[:id]).exists? then %>
+	<%= link_to('Next project >>', {:action => 'next_proj', :id => @project.id}, :class => 'project-nav-next') %>
+<% else %>
+	<%= raw('<p class="project-nav-next">Next project >></p>') %>
+<% end %>

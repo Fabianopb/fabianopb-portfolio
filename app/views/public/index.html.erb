@@ -42,8 +42,6 @@
 	<h1>Skills</h1>
 
 	<article>
-
-		<!-- divs created programmatically and "weight" and "content" added according to skill level -->
 		
 		<% @skills.each do |skill| %>
 			
@@ -66,26 +64,16 @@
 
 	<h1>Selected Work</h1>
 
-	<div>			
-		<!-- The asides should be created programmatically -->
-		<aside>
-			<%= link_to(image_tag('work1.png', :alt => 'Tanzania'), :action => 'show') %>
-		</aside>
-		<aside>
-			<a title="IDBM" href="#">
-			    <%= image_tag('work2.png', :alt => 'IDBM') %>
-			</a>
-		</aside>
-		<aside>
-			<a title="Hello Ruby" href="#">
-			    <%= image_tag('work3.png', :alt => 'Hello Ruby') %>
-			</a>
-		</aside>
-		<aside>
-			<a title="Promon" href="#">
-			    <%= image_tag('work4.png', :alt => 'Promon') %>
-			</a>
-		</aside>
+	<div>
+		
+		<% @projects.each do |project| %>
+		
+			<aside>
+				<%= link_to(image_tag(project.thumbnail, :alt => project.title), {:action => 'show', :id=> project.id}) %>
+			</aside>
+		
+		<% end %>
+	
 	</div>
 
 </section>
