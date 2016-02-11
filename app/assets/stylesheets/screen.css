@@ -126,7 +126,7 @@ header .logo {
 
 header .hero {
 	position: absolute; 
-	margin: auto; width: 60%; top: 130px; left: 20%;
+	margin: auto; width: 70%; top: 130px; left: 20%;
 	text-align: center;
 	color: #fff;
 }
@@ -234,11 +234,8 @@ section.skills article .value {
 
 
 section.skills article .skill {
-	line-height: 30px; padding-left: 10px; color: #F2F1F0; font-weight: 400; font-size: 1.1em;
-	max-width: 100px;
-	height: 30px;
-	background: rgba(0, 0, 0, 0.1);
-	border-radius: 5px;
+	line-height: 30px; padding-left: 10px;
+	color: #F2F1F0; font-weight: 400; font-size: 1.1em;
 }
 
 /****** SECTION WORK ******/

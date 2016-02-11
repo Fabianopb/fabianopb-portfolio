@@ -1,0 +1,28 @@
+<h1>BasicInfo#show</h1>
+
+<%= link_to("<< Back to admin index", :controller => 'access') %>
+
+<%= link_to("Edit basic info", {:action => 'edit', :id => @infos.first.id}) %>
+
+<table>
+    <tr>
+        <th>Header:</th>
+        <td><%= @infos.first.header %></td>
+    </tr>
+    <tr>
+        <th>Hero:</th>
+        <td><%= @infos.first.hero %></td>
+    </tr>
+    <tr>
+        <th>Caption:</th>
+        <td><%= @infos.first.caption %></td>
+    </tr>
+    <tr>
+        <th>Quote:</th>
+        <td><%= @infos.first.quote %></td>
+    </tr>
+    <tr>
+        <th>Story:</th>
+        <td><%= @infos.first.story %></td>
+    </tr>
+</table>

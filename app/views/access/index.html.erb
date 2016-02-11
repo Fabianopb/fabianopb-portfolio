@@ -1,6 +1,7 @@
 <h1>Admin index</h1>
 <p>Welcome <%= session[:name] %></p>
 <ul>
+    <li><%= link_to('Edit Basic Info', {:controller => 'basic_info', :action => 'index'}) %></li>
     <li><%= link_to('Manage skills', :controller => 'skills') %></li>
     <li><%= link_to('Manage projects', :controller => 'projects') %></li>
     <li><%= link_to('Logout', :action => 'logout') %></li>

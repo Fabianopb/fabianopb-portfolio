@@ -5,6 +5,7 @@ class PublicController < ApplicationController
   def index
     @skills = Skill.sorted
     @projects = Project.sorted
+    @info = BasicInfo.sorted.first
   end
 
   def show

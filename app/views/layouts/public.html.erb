@@ -19,10 +19,10 @@
 						<a title="Contact" href="#">Contact</a>
 					</li>
 					<li>
-						<a title="Work" href="#">Work</a>
+						<%= link_to('Work', {:action => 'index', :anchor => 'SelectedWork'}) %>
 					</li>
 					<li>
-						<a title="About me" href="#">About me</a>
+						<%= link_to('About me', {:action => 'index', :anchor => 'AboutMe'}) %>
 					</li>
 				</ul>
 			</nav>

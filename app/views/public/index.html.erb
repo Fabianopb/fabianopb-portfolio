@@ -2,19 +2,18 @@
 
 <header class="index">
 
-	<a class="logo" title="Fabiano Paiva" href="#"><h3>Fabiano Paiva</h3></a>
+	<%= link_to(raw("<h3>Fabiano Paiva</h3>"), {:action => 'index'}, :class => 'logo', :title => 'Fabiano Paiva') %>
 	<div class="hero">
-		<h2>Hey, I´m Fabiano Paiva</h2>
-		<p>a business designer with engineering background and a strong entrepreneurial spirit currently based in Helsinki.<br /><br />
-		Take a look at this selection of projects I worked on.</p>
-		<a class="show-btn" title="Show me" href="#">Show me</a>
+		<h2><%= @info.header %></h2>
+		<p><%= @info.hero.html_safe %></p>
+		<a class="show-btn" title="Show me" href="#SelectedWork">Show me</a>
 	</div>
 
 </header>
 
 
 
-<section class="about">
+<section id="AboutMe" class="about">
 
 	<h1>About me</h1>
 <div>
@@ -23,14 +22,14 @@
 	</aside>
 	
 	<aside class="caption">
-		<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo ipsum quis augue blandit convallis. </p>
+		<p class="description"><%= @info.caption %></p>
 		<blockquote>
-			<p>Suspendisse at neque ante. Curabitur in pharetra turpis.</p>
+			<p><%= @info.quote %></p>
 		</blockquote>
 	</aside>
 	
 	<article>
-		<p>Nullam ultricies justo ut nibh hendrerit, nec finibus ante porttitor. Donec sit amet libero a nulla tempus laoreet a quis elit. Aliquam convallis enim vel arcu lacinia euismod eget vitae neque. Morbi porta augue interdum pulvinar imperdiet. Ut aliquet tempus odio, nec volutpat lacus consectetur non. Cras bibendum urna sed tortor efficitur, a tristique dolor porttitor. Vivamus malesuada enim ac sapien porttitor, ac iaculis magna tristique. Integer ex erat, hendrerit non fringilla eget, tristique vitae dui. Vestibulum ante diam, interdum ac erat posuere, lacinia dignissim nisl. Curabitur non lacinia augue, ut pretium sem. Morbi diam diam, rhoncus pretium ligula eu, imperdiet volutpat velit.</p>
+		<p><%= @info.story.html_safe %></p>
 	</article>
 </div>
 </section>
@@ -60,11 +59,11 @@
 
 <hr>
 
-<section class="work">
+<section id="SelectedWork" class="work">
 
 	<h1>Selected Work</h1>
 
-	<div>
+	<div name="work">
 		
 		<% @projects.each do |project| %>
 		
