@@ -1,23 +1,27 @@
-<h1>Skills index</h1>
+<header>
+    <h1>Skills index</h1>
+</header>
 
-<%= link_to("<< Back to admin index", :controller => 'access') %>
-<%= link_to("Add new skill", :action => 'new') %>
-
-<table>
-    <tr>
-        <th>Skill</th>
-        <th>Level</th>
-        <th>Actions</th>
-    </tr>
-    <% @skills.each do |skill| %>
-    <tr>
-        <td><%= skill.skill_name %></td>
-        <td><%= skill.level %></td>
-        <td>
-            <%= link_to("Edit", {:action => 'edit', :id => skill.id}) %>
-            <%= link_to("Delete", {:action => 'delete', :id => skill.id}) %>
-        </td>
-    </tr>
-    <% end %>
-   
-</table>
+<div class="section">
+    <%= link_to("<< Back to admin index", :controller => 'access', :class => 'top-link') %>
+    <%= link_to("Add new skill", :action => 'new', :class => 'top-link') %>
+    
+    <table>
+        <tr>
+            <th>Skill</th>
+            <th>Level</th>
+            <th>Actions</th>
+        </tr>
+        <% @skills.each do |skill| %>
+        <tr>
+            <td><%= skill.skill_name %></td>
+            <td><%= skill.level %></td>
+            <td>
+                <%= link_to("Edit", {:action => 'edit', :id => skill.id}) %>
+                <%= link_to("Delete", {:action => 'delete', :id => skill.id}) %>
+            </td>
+        </tr>
+        <% end %>
+       
+    </table>
+</div>

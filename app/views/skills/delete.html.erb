@@ -1,11 +1,15 @@
-<h1>Delete skill</h1>
+<header>
+    <h1>Delete skill</h1>
+</header>
 
-<%= form_for(:skill, :url => {:action => 'destroy', :id => @skill.id}) do |f| %>
-
-    <p>Are you sure you want do delete the skill <%= @skill.skill_name %>?</p>
+<div class="section">
+    <%= form_for(:skill, :url => {:action => 'destroy', :id => @skill.id}) do |f| %>
     
-    <div class="form-btn">
-        <%= submit_tag("Delete skill") %>
-    </div>
-    
-<% end %>
+        <p>Are you sure you want do delete the skill <%= @skill.skill_name %>?</p>
+        
+        <div class="form-btn">
+            <%= submit_tag("Delete skill") %>
+        </div>
+        
+    <% end %>
+</div>

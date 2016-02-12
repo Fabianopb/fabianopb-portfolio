@@ -39,6 +39,75 @@ a:visited {
 	color: #68B8DB;
 }
 
+.background {
+	width: 100%; height: 120px;
+	background: #3F525A;
+	position: absolute; left: 0; top: 0;
+}
+
+header {
+    position: relative; 
+    color: #fff;
+    line-height: 60px;
+    text-align: center;
+}
+
+.section {
+    position: absolute;
+    top: 160px; left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0)
+}
+
+img {
+	max-width: 400px;
+}
+
+.top-link {
+	border: 1px solid #000;
+	padding: 10px 50px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
+
+/****** BODY ******/
+
+body {
+	font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 300; color: #555; margin: 0; padding: 0;
+}
+
+#page {
+	max-width: 1000px; margin: 0 auto;
+}
+
+h1 {
+	margin: .5em 0 1em 0; font-size: 2.5em; font-weight: 700;
+}
+
+h2 {
+	margin: 0 0 1em 0; font-size: 1.6em; font-weight: 700;
+}
+
+h3 {
+	margin: 0 0 1em 0; font-size: 1.6em; font-weight: 700;
+}
+
+h4{
+	margin: 0 0 1em 0; font-size: 1.2em; font-weight: 700;
+}
+
+p {
+	margin: 0 0 1em 0;
+}
+
+a {
+	color: #68B8DB;
+}
+
+a:visited {
+	color: #68B8DB;
+}
+
 hr {
 	border: 0; height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
@@ -307,4 +376,20 @@ footer .copyright {
 	font-size: .8em;
 	padding: 18px 0 0 0; margin: 0;
 }
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
 

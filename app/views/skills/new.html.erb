@@ -1,11 +1,15 @@
-<h1>Add new skill</h1>
+<header>
+    <h1>Add new skill</h1>
+</header>
 
-<%= form_for(:skill, :url => {:action => 'create'}) do |f| %>
-
-    <%= render(:partial => "form", :locals => {:f => f}) %>
+<div class="section">
+    <%= form_for(:skill, :url => {:action => 'create'}) do |f| %>
     
-    <div class="form-btn">
-        <%= submit_tag("Create skill") %>
-    </div>
-
-<% end %>
+        <%= render(:partial => "form", :locals => {:f => f}) %>
+        
+        <div class="form-btn">
+            <%= submit_tag("Create skill") %>
+        </div>
+    
+    <% end %>
+</div>

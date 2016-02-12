@@ -1,34 +1,38 @@
-<h1>BasicInfo#edit</h1>
+<header>
+    <h1>BasicInfo#edit</h1>
+</header>
 
-<%= link_to('Back to info', :action => 'index') %>
-
-<%= form_for(:basic_infos, :url => {:action => 'update', :id => @info.id}) do |f| %>
-
-<table>
-    <tr>
-        <th><%= f.label(:header) %></th>
-        <td><%= f.text_field(:header) %></td>
-    </tr>
-    <tr>
-        <th><%= f.label(:hero) %></th>
-        <td><%= f.text_area(:hero, :size => '45x10') %></td>
-    </tr>
-    <tr>
-        <th><%= f.label(:caption) %></th>
-        <td><%= f.text_field(:caption) %></td>
-    </tr>
-    <tr>
-        <th><%= f.label(:quote) %></th>
-        <td><%= f.text_field(:quote) %></td>
-    </tr>
-    <tr>
-        <th><%= f.label(:story) %></th>
-        <td><%= f.text_area(:story, :size => '45x10') %></td>
-    </tr>
-</table>
-
-<div class="form-btn">
-    <%= submit_tag("Update basic info") %>
+<div class="section">
+    <%= link_to('Back to info', :action => 'index') %>
+    
+    <%= form_for(:basic_infos, :url => {:action => 'update', :id => @info.id}) do |f| %>
+    
+    <table>
+        <tr>
+            <th><%= f.label(:header) %></th>
+            <td><%= f.text_field(:header) %></td>
+        </tr>
+        <tr>
+            <th><%= f.label(:hero) %></th>
+            <td><%= f.text_area(:hero, :size => '45x10') %></td>
+        </tr>
+        <tr>
+            <th><%= f.label(:caption) %></th>
+            <td><%= f.text_field(:caption) %></td>
+        </tr>
+        <tr>
+            <th><%= f.label(:quote) %></th>
+            <td><%= f.text_field(:quote) %></td>
+        </tr>
+        <tr>
+            <th><%= f.label(:story) %></th>
+            <td><%= f.text_area(:story, :size => '45x10') %></td>
+        </tr>
+    </table>
+    
+    <div class="form-btn">
+        <%= submit_tag("Update basic info") %>
+    </div>
+    
+    <% end %>
 </div>
-
-<% end %>

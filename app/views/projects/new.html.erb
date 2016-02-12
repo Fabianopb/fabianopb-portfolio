@@ -1,13 +1,17 @@
-<h1>Add new project</h1>
+<header>
+    <h1>Add new project</h1>
+</header>
 
-<%= link_to("Back to list", :action => 'index') %>
-
-<%= form_for(:project, :url => {:action => 'create'}) do |f| %>
-
-    <%= render(:partial => "form", :locals => {:f => f}) %>
+<div class="section">
+    <%= link_to("Back to list", :action => 'index') %>
     
-    <div class="form-btn">
-        <%= submit_tag("Create project") %>
-    </div>
-
-<% end %>
+    <%= form_for(:project, :url => {:action => 'create'}) do |f| %>
+    
+        <%= render(:partial => "form", :locals => {:f => f}) %>
+        
+        <div class="form-btn">
+            <%= submit_tag("Create project") %>
+        </div>
+    
+    <% end %>
+</div>

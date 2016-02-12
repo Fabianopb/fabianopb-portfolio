@@ -1,40 +1,44 @@
-<h1>Project details: <%= @project.title %></h1>
+<header>
+    <h1>Project details: <%= @project.title %></h1>
+</header>
 
-<%= link_to("Back to list", :action => 'index') %>
-
-<%= link_to("Edit project", {:action => 'edit', :id => @project.id}) %>
-
-<table>
-    <tr>
-        <th>Title:</th>
-        <td><%= @project.title %></td>
-    </tr>
-    <tr>
-        <th>Caption:</th>
-        <td><%= @project.caption %></td>
-    </tr>
-    <tr>
-        <th>Abstract:</th>
-        <td><%= @project.abstract%></td>
-    </tr>
-    <tr>
-        <th>Text:</th>
-        <td><%= @project.text.html_safe %></td>
-    </tr>
-    <tr>
-        <th>Facts:</th>
-        <td><%= @project.facts %></td>
-    </tr>
-    <tr>
-        <th>Thumbnail:</th>
-        <td><%= image_tag @project.thumbnail.url %></td>
-    </tr>
-    <tr>
-        <th>Image1:</th>
-        <td><%= image_tag @project.image1.url %></td>
-    </tr>
-    <tr>
-        <th>Image2:</th>
-        <td><%= image_tag @project.image2.url %></td>
-    </tr>
-</table>
+<div class="section">
+    <%= link_to("Back to list", :action => 'index') %>
+    
+    <%= link_to("Edit project", {:action => 'edit', :id => @project.id}) %>
+    
+    <table>
+        <tr>
+            <th>Title:</th>
+            <td><%= @project.title %></td>
+        </tr>
+        <tr>
+            <th>Caption:</th>
+            <td><%= @project.caption %></td>
+        </tr>
+        <tr>
+            <th>Abstract:</th>
+            <td><%= @project.abstract%></td>
+        </tr>
+        <tr>
+            <th>Text:</th>
+            <td><%= @project.text.html_safe %></td>
+        </tr>
+        <tr>
+            <th>Facts:</th>
+            <td><%= @project.facts %></td>
+        </tr>
+        <tr>
+            <th>Thumbnail:</th>
+            <td><%= image_tag @project.thumbnail.url %></td>
+        </tr>
+        <tr>
+            <th>Image1:</th>
+            <td><%= image_tag @project.image1.url %></td>
+        </tr>
+        <tr>
+            <th>Image2:</th>
+            <td><%= image_tag @project.image2.url %></td>
+        </tr>
+    </table>
+</div>
