@@ -23,7 +23,13 @@
 		</aside>
 		<p class="facts"><%= @project.facts %></p>
 	</article>
-
+	
+	<% if !@project.video.blank? %>
+		<div class="video">
+			<iframe src="<%= @project.video.html_safe %>" frameborder="0" allowfullscreen></iframe>
+		</div>
+	<% end %>
+	
 	<%= render(:partial => "proj_nav") %>
 
 </section>

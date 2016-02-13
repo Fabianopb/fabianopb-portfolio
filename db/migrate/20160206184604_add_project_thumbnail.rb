@@ -1,6 +1,6 @@
 class AddProjectThumbnail < ActiveRecord::Migration
   
-  def change
+  def up
     add_column("projects", "thumbnail", :string, :after => "image2")
   end
   

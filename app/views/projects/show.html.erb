@@ -40,5 +40,13 @@
             <th>Image2:</th>
             <td><%= image_tag @project.image2.url %></td>
         </tr>
+        <tr>
+            <th>Video:</th>
+            <td>
+                <% if !@project.video.blank? %>
+        		<iframe src="<%= @project.video.html_safe %>" frameborder="0" allowfullscreen></iframe>
+        	    <% end %>
+            </td>
+        </tr>
     </table>
 </div>
