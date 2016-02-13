@@ -16,7 +16,7 @@
 			<nav>
 				<ul>
 					<li>
-						<a title="Contact" href="#">Contact</a>
+						<%= link_to('Contact', :anchor => 'ContactAnchor') %>
 					</li>
 					<li>
 						<%= link_to('Work', {:action => 'index', :anchor => 'SelectedWork'}) %>
@@ -34,7 +34,7 @@
 			
 		</div>
 
-		<footer><!-- should be kept in a partial -->
+		<footer id="ContactAnchor">
 		
 			<div class="footer">
 				<h4>Get in touch!</h4>
@@ -54,7 +54,7 @@
 					    <%= image_tag('github.svg', :alt => 'GitHub') %>
 					</a>
 				</aside>
-				<p class="copyright">&copy; Fabiano Brito. This website was developed using Ruby on Rails platform.</p>
+				<p class="copyright">&copy; 2016 Fabiano Brito. Developed using <a href="http://rubyonrails.org/" target="_blank">Ruby on Rails</a>.</p>
 			</div>
 		
 		</footer>
