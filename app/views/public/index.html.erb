@@ -42,6 +42,14 @@
 
 	<article>
 		
+		<table>
+			<tr>
+				<td class="divider"><h4>BEGINNER</h4></td>
+				<td class="divider"><h4>PROFICIENT</h4></td>
+				<td><h4>EXPERT</h4></td>
+			</tr>
+		</table>
+		
 		<% @skills.each do |skill| %>
 			
 			<div class="back">
@@ -63,16 +71,13 @@
 
 	<h1>Selected Work</h1>
 
-	<div name="work">
-		
-		<% @projects.each do |project| %>
-		
-			<aside>
-				<%= link_to(image_tag(project.thumbnail, :alt => project.title), {:action => 'show', :id=> project.id}) %>
-			</aside>
-		
-		<% end %>
+	<% @projects.each do |project| %>
 	
-	</div>
+		<aside>
+			<%= image_tag(project.thumbnail, :alt => project.title) %>
+			<%= link_to(raw('<div class="trans"><p>' + project.caption + '</p></div>'), {:action => 'show', :id=> project.id}) %>
+		</aside>
+	
+	<% end %>
 
 </section>
