@@ -7,6 +7,7 @@
 		<meta name="keywords" content="Fabiano Paiva, portfolio, design, projects, relevant work">
 		<title>Fabiano Paiva</title>
 		<%= stylesheet_link_tag('screen', :media => 'screen') %>
+		<%= javascript_include_tag('application') %>
 		<!--link rel="stylesheet" type="text/css" media="print" href="css/print.css"-->
 	</head>
 
@@ -16,7 +17,7 @@
 			<nav>
 				<ul>
 					<li>
-						<%= link_to('Contact', :anchor => 'ContactAnchor') %>
+						<%= link_to('Contact', {:anchor => 'ContactAnchor'}) %>
 					</li>
 					<li>
 						<%= link_to('Work', {:action => 'index', :anchor => 'SelectedWork'}) %>
