@@ -14,3 +14,6 @@ $ ->
       'scrollTop': $target.offset().top
     }, 500, 'swing', ->
       window.location.hash = target
+      
+
+

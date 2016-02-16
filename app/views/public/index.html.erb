@@ -2,7 +2,7 @@
 
 <header class="index">
 
-	<%= link_to(raw("<h3>Fabiano Paiva</h3>"), {:action => 'index'}, :class => 'logo', :title => 'Fabiano Paiva') %>
+	<%= link_to("Fabiano Paiva", {:action => 'index'}, :class => 'logo', :title => 'Fabiano Paiva') %>
 	<div class="hero">
 		<h2><%= @info.header %></h2>
 		<p><%= @info.hero.html_safe %></p>
@@ -16,22 +16,22 @@
 <section id="AboutMe" class="about">
 
 	<h1>About me</h1>
-<div>
-	<aside class="picture">
-	    <img alt="That's me!" src="/assets/fabiano.png">
-	</aside>
-	
-	<aside class="caption">
-		<p class="description"><%= @info.caption %></p>
-		<blockquote>
-			<p><%= @info.quote %></p>
-		</blockquote>
-	</aside>
-	
-	<article>
-		<p><%= @info.story.html_safe %></p>
-	</article>
-</div>
+	<div>
+		<aside class="picture">
+		    <img alt="That's me!" src="/assets/fabiano.png">
+		</aside>
+		
+		<aside class="caption">
+			<p class="description"><%= @info.caption %></p>
+			<blockquote>
+				<p><%= @info.quote %></p>
+			</blockquote>
+		</aside>
+		
+		<article>
+			<p><%= @info.story.html_safe %></p>
+		</article>
+	</div>
 </section>
 
 <hr>
