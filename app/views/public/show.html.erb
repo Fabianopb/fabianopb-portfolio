@@ -7,7 +7,7 @@
 
 <section class="project-details">
 	
-	<%= render(:partial => "proj_nav") %>
+	<span class="top-nav"><%= render(:partial => "proj_nav") %></span>
 	
 	<article>
 		<h1><%= @project.title %></h1>
@@ -30,6 +30,6 @@
 		</div>
 	<% end %>
 	
-	<%= render(:partial => "proj_nav") %>
+	<span class="bottom-nav"><%= render(:partial => "proj_nav") %></span>
 
 </section>

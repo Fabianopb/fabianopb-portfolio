@@ -416,9 +416,9 @@ footer .copyright {
 	
 	header div p { font-size: .9em; }
 	
-	section.project-details .video { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; }
+	section.project-details .video { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; margin-bottom: 20px;}
 
-section.project-details .video iframe {	position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+	section.project-details .video iframe {	position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 	
 }
 
@@ -428,11 +428,11 @@ section.project-details .video iframe {	position: absolute; top: 0; left: 0; wid
 	
 	.background { height: 415px; background: #3F525A url(/assets/header2_500.png) no-repeat center bottom; }
 	
-	.navigation { position: fixed; background-color: rgba(21, 30, 31, .95); height: 40px; }
+	.navigation { position: fixed; background-color: rgba(21, 30, 31, .95); height: 50px; }
 	
 	nav ul li { float: right; width: 33%; }
 	
-	nav ul li a { width: 100%; font-size: .8em; padding: 10px 0; }
+	nav ul li a { width: 100%; font-size: .9em; padding: 15px 0; }
 	
 	
 	h1 { font-size: 1.6em; }
@@ -440,6 +440,8 @@ section.project-details .video iframe {	position: absolute; top: 0; left: 0; wid
 	h2 { font-size: 1.2em; }
 	
 	
+	.show {	height: 20px; }
+
 	header .hero { top: 80px; }
 	
 	header .logo { display: none; }
@@ -492,7 +494,10 @@ section.project-details .video iframe {	position: absolute; top: 0; left: 0; wid
 
 	footer .copyright { font-size: .7em; padding: 10px 0; }
 	
+	
 	/* Show page */
+	
+	section.project-details { padding-top: 0; padding-bottom: 80px; }
 	
 	section article .abstract {	font-size: 1em; margin-bottom: 15px; }
 	
@@ -503,6 +508,8 @@ section.project-details .video iframe {	position: absolute; top: 0; left: 0; wid
 	section.project-details .project-nav-back {	font-size: .8em; }
 
 	section.project-details .project-nav-next {	font-size: .8em; }
+	
+	section.project-details .top-nav { display: none; }
 	
 }
 
