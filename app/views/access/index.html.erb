@@ -3,6 +3,7 @@
 </header>
 
 <div class="section">
+    
     <p>Welcome <%= session[:name] %></p>
     <ul>
         <li><%= link_to('Edit Basic Info', {:controller => 'basic_info', :action => 'index'}) %></li>
@@ -10,4 +11,7 @@
         <li><%= link_to('Manage projects', :controller => 'projects') %></li>
         <li><%= link_to('Logout', :action => 'logout') %></li>
     </ul>
+    
+    <%= link_to('View website', :controller => 'public') %>
+    
 </div>
