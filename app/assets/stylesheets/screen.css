@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-	margin: .5em 0 1em 0; font-size: 2.5em; font-weight: 700; color: #CCD1AA;
+	margin: .5em 0 1em 0; font-size: 2.5em; font-weight: 700; color: #8E8F98;
 }
 
 h2 {
@@ -174,7 +174,7 @@ section.about div aside.caption blockquote {
 }
 
 section.about div aside.caption blockquote p::before {
-	content:'\201c'; color: #CCD1AA;
+	content:'\201c'; color: #8E8F98;
 	position: absolute;
 	top: -30px; left: -44px;
 	font-size: 5em;
@@ -219,7 +219,7 @@ section.skills article .back {
 	margin-bottom: 10px;
 	width: 100%;
 	height: 25px;
-	background: #CCD1AA;
+	background: #D1D0D7;
 	border-radius: 5px;
 }
 
@@ -234,7 +234,7 @@ section.skills article .value {
 	position: absolute; top: 0; right: 5px;
 	line-height: 25px;
 	font-size: .7em;
-	color: #FFF;
+	color: #8E8F98;
 }
 
 
