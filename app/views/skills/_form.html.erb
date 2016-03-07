@@ -7,4 +7,8 @@
         <th><%= f.label(:level, "Level") %></th>
         <td><%= f.number_field(:level, in: 0..100, step: 5) %></td>
     </tr>
+    <tr>
+        <th><%= f.label(:visibility) %></th>
+        <td><%= f.check_box(:visibility) %></td>
+    </tr>
 </table>

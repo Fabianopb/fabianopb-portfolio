@@ -51,6 +51,8 @@
 		</table>
 		
 		<% @skills.each do |skill| %>
+		
+			<% if skill.visibility %>
 			
 			<div class="back">
 				<div class="level" style="width: <%= skill.level%>%;">
@@ -58,6 +60,8 @@
 					<div class="skill"><%= skill.skill_name %></div>
 				</div>
 			</div>
+			
+			<% end %>
 		
 		<% end %>
 
@@ -73,10 +77,14 @@
 
 	<% @projects.each do |project| %>
 	
+		<% if project.visibility %>
+	
 		<aside>
 			<%= image_tag(project.thumbnail, :alt => project.title) %>
 			<%= link_to(raw('<div class="trans"><p>' + project.caption + '</p></div>'), {:action => 'show', :id=> project.id}) %>
 		</aside>
+		
+		<% end %>
 	
 	<% end %>
 

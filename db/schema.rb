@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228151143) do
+ActiveRecord::Schema.define(version: 20160307114743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,21 +31,23 @@ ActiveRecord::Schema.define(version: 20160228151143) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "title"
-    t.string "caption"
-    t.text   "abstract"
-    t.text   "text"
-    t.text   "facts"
-    t.string "image1"
-    t.string "image2"
-    t.string "thumbnail"
-    t.string "video"
-    t.string "duration"
+    t.string  "title"
+    t.string  "caption"
+    t.text    "abstract"
+    t.text    "text"
+    t.text    "facts"
+    t.string  "image1"
+    t.string  "image2"
+    t.string  "thumbnail"
+    t.string  "video"
+    t.string  "duration"
+    t.boolean "visibility", default: false
   end
 
   create_table "skills", force: :cascade do |t|
     t.string  "skill_name"
     t.integer "level"
+    t.boolean "visibility", default: false
   end
 
 end

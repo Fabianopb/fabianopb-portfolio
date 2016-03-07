@@ -11,6 +11,7 @@
             <th>Skill</th>
             <th>Level</th>
             <th>Actions</th>
+            <th>Visible</th>
         </tr>
         <% @skills.each do |skill| %>
         <tr>
@@ -20,6 +21,7 @@
                 <%= link_to("Edit", {:action => 'edit', :id => skill.id}) %>
                 <%= link_to("Delete", {:action => 'delete', :id => skill.id}) %>
             </td>
+            <td><%= skill.visibility %></td>
         </tr>
         <% end %>
        

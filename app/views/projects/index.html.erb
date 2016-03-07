@@ -11,6 +11,7 @@
             <th>Project title</th>
             <th>Caption</th>
             <th>Actions</th>
+            <th>Visible</th>
         </tr>
         <% @projects.each do |project| %>
         <tr>
@@ -20,6 +21,7 @@
                 <%= link_to("View", {:action => 'show', :id => project.id}) %>
                 <%= link_to("Delete", {:action => 'delete', :id => project.id}) %>
             </td>
+            <td><%= project.visibility %></td>
         </tr>
         <% end %>
     </table>
