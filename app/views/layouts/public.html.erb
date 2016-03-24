@@ -17,13 +17,16 @@
 			<nav>
 				<ul>
 					<li>
+						<%= link_to('Blog', 'https://medium.com/@fabianopb', :target => '_blank') %>
+					</li>
+					<li>
 						<%= link_to('Contact', {:anchor => 'ContactAnchor'}) %>
 					</li>
 					<li>
 						<%= link_to('Work', {:action => 'index', :anchor => 'SelectedWork'}) %>
 					</li>
 					<li>
-						<%= link_to('About me', {:action => 'index', :anchor => 'AboutMe'}) %>
+						<%= link_to('About', {:action => 'index', :anchor => 'AboutMe'}) %>
 					</li>
 				</ul>
 			</nav>
