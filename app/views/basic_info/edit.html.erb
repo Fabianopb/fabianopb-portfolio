@@ -5,7 +5,7 @@
 <div class="section">
     <%= link_to('Back to info', :action => 'index') %>
     
-    <%= form_for(:basic_infos, :url => {:action => 'update', :id => @info.id}) do |f| %>
+    <%= form_for(@info, :url => {:action => 'update', :id => @info.id}, method: :post ) do |f| %>
     
     <table>
         <tr>

@@ -5,7 +5,7 @@ class BasicInfoController < ApplicationController
   before_action :confirm_logged_in
   
   def index
-    @infos = BasicInfo.sorted
+    @info = BasicInfo.first
   end
 
   def edit
@@ -24,7 +24,7 @@ class BasicInfoController < ApplicationController
   private
   
   def info_params
-    params.require(:basic_infos).permit(:header, :hero, :caption, :quote, :story)
+    params.require(:basic_info).permit(:header, :hero, :caption, :quote, :story)
   end
   
 end

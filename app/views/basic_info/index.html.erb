@@ -5,28 +5,28 @@
 <div class="section">
     <%= link_to("<< Back to admin index", :controller => 'access') %>
     
-    <%= link_to("Edit basic info", {:action => 'edit', :id => @infos.first.id}) %>
+    <%= link_to("Edit basic info", {:action => 'edit', :id => @info.id}) %>
     
     <table>
         <tr>
             <th>Header:</th>
-            <td><%= @infos.first.header %></td>
+            <td><%= @info.header %></td>
         </tr>
         <tr>
             <th>Hero:</th>
-            <td><%= @infos.first.hero %></td>
+            <td><%= @info.hero %></td>
         </tr>
         <tr>
             <th>Caption:</th>
-            <td><%= @infos.first.caption %></td>
+            <td><%= @info.caption %></td>
         </tr>
         <tr>
             <th>Quote:</th>
-            <td><%= @infos.first.quote %></td>
+            <td><%= @info.quote %></td>
         </tr>
         <tr>
             <th>Story:</th>
-            <td><%= @infos.first.story %></td>
+            <td><%= @info.story %></td>
         </tr>
     </table>
 </div>
