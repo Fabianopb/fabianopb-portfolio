@@ -53,5 +53,5 @@ gem 'rails_12factor', group: :production
 # server for Heroku production
 gem 'puma'
 
-ruby "2.3.0"
+ruby "2.3.1"
 
