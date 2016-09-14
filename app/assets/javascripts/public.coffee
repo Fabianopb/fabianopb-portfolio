@@ -11,8 +11,8 @@ $ ->
     $target = $(target)
 
     $('html, body').stop().animate {
-      'scrollTop': $target.offset().top
-    }, 500, 'swing', ->
+      'scrollTop': $target.offset().top - 200
+    }, 2500, 'swing', ->
       window.location.hash = target
       
 
