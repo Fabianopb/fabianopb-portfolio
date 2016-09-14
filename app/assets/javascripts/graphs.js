@@ -1,6 +1,12 @@
 var CHARTS = (function() {
 
+	var triggerSkillsGraph = true;
+	var skillsData;
+	var skillsTransition;
+	
 	var drawSkills = function(data) {
+
+		skillsData = data;
 
 		var barHeight = 24,
 			barGap = 8;
@@ -56,7 +62,7 @@ var CHARTS = (function() {
       .attr("width", width)
       .attr("height", barHeight);
 
-		svg.selectAll(".data-bar")
+		var dataBars = svg.selectAll(".data-bar")
       .data(data)
       .enter().append("rect")
       .attr("class", "data-bar")
@@ -65,10 +71,7 @@ var CHARTS = (function() {
       .attr("x", 0)
       .attr("y", function(d, i) { return y(i); })
       .attr("width", 0)
-      .attr("height", barHeight)
-      .transition()
-      .duration(1000)
-      .attr("width", function(d) { return x(d.level); });
+      .attr("height", barHeight);
 
 	  svg.selectAll(".skill-name")
 	  	.data(data)
@@ -89,10 +92,26 @@ var CHARTS = (function() {
       .style("text-anchor", "end")
       .text(function(d) { return d.level + "%"; });
 
+    skillsTransition = function(data) {
+    	dataBars
+    	.data(data)
+    	.transition()
+      .duration(1000)
+      .attr("width", function(d) { return x(d.level); });
+    };
+
+	};
+
+	var scrollTrigger = function(e) {
+	  if(triggerSkillsGraph && window.pageYOffset > 1200) {
+	  	skillsTransition(skillsData);
+	  	triggerSkillsGraph = false;
+	  }
 	};
 
 	return {
-		drawSkills: drawSkills
+		drawSkills: drawSkills,
+		scrollTrigger: scrollTrigger
 	};
 
 })();
@@ -108,14 +127,14 @@ var DATASERVICE = (function () {
 		  dataType: 'json',
 		  data: "{}", 
 		  success: function (data) {
-		  	console.log(data);
 		    CHARTS.drawSkills(data);
+		    window.onscroll = CHARTS.scrollTrigger;
 		  },
 			error: function (error) {
 				console.log(error);
 		  }
 		});
 
-	}
+	};
 
 })();
