@@ -1,47 +1,94 @@
 var CHARTS = (function() {
 
 	var drawSkills = function(data) {
-		var margin = {top: 20, right: 20, bottom: 20, left: 20},
-  		width = 240 - margin.left - margin.right,
-  		height = 240 - margin.top - margin.bottom;
 
-  	var x = d3.scale.ordinal().rangeBands([0, width]),
-      y = d3.scale.linear().range([height, 0]);
+		var barHeight = 24,
+			barGap = 8;
 
-	  var svg = d3.select(".test-graph")
+		var marginTop = 60;
+
+		var width = 600,
+  		height = (barHeight + barGap) * data.length;
+
+  	var x = d3.scale.linear()
+  		.domain([0, 100])
+  		.range([0, width]);
+
+  	var y = d3.scale.linear()
+  		.domain([0, data.length])
+  		.range([0, height]);
+
+	  var svg = d3.select(".skills-graph-container")
 			.append("svg")
-		  .attr("width", width + margin.left + margin.right)
-		  .attr("height", height + margin.top + margin.bottom)
+		  .attr("width", width)
+		  .attr("height", height + marginTop)
 			.append("g")
-		  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			.attr("transform", "translate(0," + marginTop + ")");
 
-		x.domain(data.map(function(d) {
-      return d.skill;
-    }));
-    y.domain([0, d3.max(data, function(d) {
-      return d.value;
-    })]);
+		svg.selectAll(".skill-scale")
+	  	.data(['BEGINNER', 'PROFICIENT', 'EXPERT'])
+	  	.enter().append("text")
+	    .attr("class", "skill-scale")
+      .attr("x", function(d, i) { return (((i + 1) * 2) - 1) * width / 6; })
+      .attr("y", -marginTop / 2)
+      .attr("dy", "0.25em")
+      .style("text-anchor", "middle")
+      .text(function(d) { return d; });
 
-    gapWidth = x.rangeBand() * 0.2;
+    svg.selectAll(".scale-division")
+    	.data([1, 2])
+    	.enter().append("line")
+      .attr("class", "scale-division")
+      .attr("x1", function(d) { return width * d / 3; })
+      .attr("y1", -marginTop + barGap * 2)
+      .attr("x2", function(d) { return width * d / 3; })
+      .attr("y2", -barGap * 2)
+      .attr("stroke-width", 1);
+
+    svg.selectAll(".back-bar")
+      .data(data)
+      .enter().append("rect")
+      .attr("class", "back-bar")
+      .attr("rx", 5)
+    	.attr("ry", 5)
+      .attr("x", 0)
+      .attr("y", function(d, i) { return y(i); })
+      .attr("width", width)
+      .attr("height", barHeight);
 
 		svg.selectAll(".data-bar")
       .data(data)
       .enter().append("rect")
       .attr("class", "data-bar")
-      .attr("x", function(d) {
-        return x(d.skill) + gapWidth / 2;
-      })
-      .attr("width", x.rangeBand() - gapWidth)
-      .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { return height - y(d.value); });
-      // .transition()
-      // .duration(500)
-      // .attr("y", function(d) {
-      //   return y(d.value);
-      // })
-      // .attr("height", function(d) {
-      //   return height - y(d.value);
-      // });
+      .attr("rx", 5)
+    	.attr("ry", 5)
+      .attr("x", 0)
+      .attr("y", function(d, i) { return y(i); })
+      .attr("width", 0)
+      .attr("height", barHeight)
+      .transition()
+      .duration(1000)
+      .attr("width", function(d) { return x(d.level); });
+
+	  svg.selectAll(".skill-name")
+	  	.data(data)
+	  	.enter().append("text")
+	    .attr("class", "skill-name")
+      .attr("x", 10)
+      .attr("y", function(d, i) { return y(i) + barHeight / 2; })
+      .attr("dy", "0.25em")
+      .text(function(d) { return d.skill_name; });
+
+    svg.selectAll(".skill-value")
+	  	.data(data)
+	  	.enter().append("text")
+	    .attr("class", "skill-value")
+      .attr("x", width - 10)
+      .attr("y", function(d, i) { return y(i) + barHeight / 2; })
+      .attr("dy", "0.3em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d.level + "%"; });
+
 	};
 
 	return {
@@ -61,6 +108,7 @@ var DATASERVICE = (function () {
 		  dataType: 'json',
 		  data: "{}", 
 		  success: function (data) {
+		  	console.log(data);
 		    CHARTS.drawSkills(data);
 		  },
 			error: function (error) {

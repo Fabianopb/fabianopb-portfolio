@@ -1,7 +1,6 @@
 class DataController < ApplicationController
 	def get_data
-    respond_to do |format|
-      format.json {}
-    end
+		skills = Skill.sorted
+		render :json => skills.to_json(:only => [:skill_name, :level]), :callback => params[:callback]
   end
 end

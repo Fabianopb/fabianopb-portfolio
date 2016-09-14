@@ -11,8 +11,6 @@
 
 </header>
 
-<div class="test-graph"></div>
-
 <section id="AboutMe" class="about">
 
 	<h1>About me</h1>
@@ -41,29 +39,12 @@
 	<h1>Skills</h1>
 
 	<article>
-		
-		<table>
-			<tr>
-				<td class="divider"><h4>BEGINNER</h4></td>
-				<td class="divider"><h4>PROFICIENT</h4></td>
-				<td><h4>EXPERT</h4></td>
-			</tr>
-		</table>
-		
-		<% @skills.each do |skill| %>
-		
-			<% if skill.visibility %>
-			
-			<div class="back">
-				<div class="level" style="width: <%= skill.level%>%;">
-					<div class="value"><%= skill.level %>%</div>
-					<div class="skill"><%= skill.skill_name %></div>
-				</div>
-			</div>
-			
-			<% end %>
-		
-		<% end %>
+
+	<div class="skills-flex-container">
+		<!-- <div class="skill-empty-column"></div> -->
+		<div class="skills-graph-container"></div>
+		<!-- <div class="skill-empty-column"></div> -->
+	</div>
 
 	</article>
 

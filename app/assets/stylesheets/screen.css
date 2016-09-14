@@ -353,6 +353,51 @@ footer .copyright {
 	padding: 18px 0; margin: 0;
 }
 
+/* NEW SKILLS CSS FOR D3 ELEMENT */
+/*
+.skill-empty-column {
+	display: inline-flex;
+}
+*/
+
+.skills-flex-container {
+	display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.skills-graph-container {
+	justify-content: center;
+}
+
+.back-bar {
+	fill: #D1D0D7;
+}
+
+.data-bar {
+	fill: #284865;
+}
+
+.skill-name {
+	fill: #FFF;
+	font-weight: 400;
+}
+
+.skill-value {
+	fill: #8E8F98;
+	font-weight: 400;
+	font-size: 0.8em;
+}
+
+.skill-scale {
+	fill: #555;
+	font-weight: 700;
+	font-size: 0.75em;
+}
+
+.scale-division {
+	stroke: #555;
+}
 /***** MEDIA QUERIES *****/
 
 @media screen and (max-width: 850px) {
