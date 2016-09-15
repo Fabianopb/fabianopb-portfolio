@@ -3,6 +3,13 @@ var CHARTS = (function() {
 	var triggerSkillsGraph = true;
 	var skillsData;
 	var skillsTransition;
+
+	var mouseOverEvent = function() {
+		if(triggerSkillsGraph) {
+			triggerSkillsGraph = false;
+			skillsTransition(skillsData);
+		}
+	};
 	
 	var drawSkills = function(data) {
 
@@ -29,7 +36,8 @@ var CHARTS = (function() {
 		  .attr("width", width)
 		  .attr("height", height + marginTop)
 			.append("g")
-			.attr("transform", "translate(0," + marginTop + ")");
+			.attr("transform", "translate(0," + marginTop + ")")
+			.on("mouseover", mouseOverEvent);
 
 		svg.selectAll(".skill-scale")
 	  	.data(['BEGINNER', 'PROFICIENT', 'EXPERT'])
@@ -102,16 +110,8 @@ var CHARTS = (function() {
 
 	};
 
-	var scrollTrigger = function(e) {
-	  if(triggerSkillsGraph && window.pageYOffset > 1200) {
-	  	skillsTransition(skillsData);
-	  	triggerSkillsGraph = false;
-	  }
-	};
-
 	return {
-		drawSkills: drawSkills,
-		scrollTrigger: scrollTrigger
+		drawSkills: drawSkills
 	};
 
 })();
@@ -128,7 +128,6 @@ var DATASERVICE = (function () {
 		  data: "{}", 
 		  success: function (data) {
 		    CHARTS.drawSkills(data);
-		    window.onscroll = CHARTS.scrollTrigger;
 		  },
 			error: function (error) {
 				console.log(error);
