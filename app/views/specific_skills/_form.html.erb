@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <th><%= f.label(:category) %></th>
+        <td><%= f.select :category, ['Business', 'Design', 'Technology'] %></td>
+    </tr>
+    <tr>
+        <th><%= f.label(:name) %></th>
+        <td><%= f.text_field(:name) %></td>
+    </tr>
+    <tr>
+        <th><%= f.label(:size) %></th>
+        <td><%= f.number_field(:size, in: 0..10, step: 1) %></td>
+    </tr>
+</table>

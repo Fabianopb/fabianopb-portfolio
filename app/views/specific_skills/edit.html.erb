@@ -1,0 +1,15 @@
+<header>
+    <h1>Edit specific skills</h1>
+</header>
+
+<div class="section">
+    <%= form_for(:specific_skill, :url => {:action => 'update', :id => @specific_skill.id}) do |f| %>
+    
+        <%= render(:partial => "form", :locals => {:f => f}) %>
+        
+        <div class="form-btn">
+            <%= submit_tag("Update specific skill") %>
+        </div>
+        
+    <% end %>
+</div>

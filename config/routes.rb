@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'specific_skills/new'
+
+  get 'specific_skills/index'
+
+  get 'specific_skills/edit'
+
+  get 'specific_skills/delete'
+
   root 'public#index'
   
   get 'admin', :to => "access#index"

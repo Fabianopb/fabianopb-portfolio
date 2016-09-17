@@ -1,0 +1,29 @@
+<header>
+    <h1>Specific skills index</h1>
+</header>
+
+<div class="section">
+    <%= link_to("<< Back to admin index", :controller => 'access', :class => 'top-link') %>
+    <%= link_to("Add new specific skill", :action => 'new', :class => 'top-link') %>
+    
+    <table>
+        <tr>
+          <th>Category</th>
+          <th>Skill</th>
+          <th>Level</th>
+          <th>Actions</th>
+        </tr>
+        <% @specific_skills.each do |specific_skill| %>
+        <tr>
+        		<td><%= specific_skill.category %></td>
+            <td><%= specific_skill.name %></td>
+            <td><%= specific_skill.size %></td>
+            <td>
+                <%= link_to("Edit", {:action => 'edit', :id => specific_skill.id}) %>
+                <%= link_to("Delete", {:action => 'delete', :id => specific_skill.id}) %>
+            </td>
+        </tr>
+        <% end %>
+       
+    </table>
+</div>
