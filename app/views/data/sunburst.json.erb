@@ -4,28 +4,28 @@
 		{
 			"name": "Business",
 			"children": [
-				{"name": "Data Analytics", "size": 4},
-				{"name": "Digital Marketing", "size": 2},
-				{"name": "Web and Mobile Metrics", "size": 5}
+				<% @business_skills.each_with_index do |business_skill, index| %>
+					<% line = "{\"name\": \"#{business_skill.name}\", \"size\": #{business_skill.size}}" %>
+					<%= index + 1 == @business_skills.length ? "#{line}".html_safe : "#{line},".html_safe %>
+				<% end %>
 			]
 		},
 		{
 			"name": "Design",
 			"children": [
-				{"name": "User Interface", "size": 4},
-				{"name": "Adobe Photoshop", "size": 3},
-				{"name": "Adobe Illustrator", "size": 2}
+				<% @design_skills.each_with_index do |design_skill, index| %>
+					<% line = "{\"name\": \"#{design_skill.name}\", \"size\": #{design_skill.size}}" %>
+					<%= index + 1 == @design_skills.length ? "#{line}".html_safe : "#{line},".html_safe %>
+				<% end %>
 			]
 		},
 		{
 			"name": "Technology",
 			"children": [
-				{"name": "AngularJS", "size": 9},
-				{"name": "Ruby on Rails", "size": 8},
-				{"name": "PostgreSQL", "size": 6},
-				{"name": "NodeJS", "size": 2},
-				{"name": "Java", "size": 4},
-				{"name": "JavaScript", "size": 9}
+				<% @technology_skills.each_with_index do |technology_skill, index| %>
+					<% line = "{\"name\": \"#{technology_skill.name}\", \"size\": #{technology_skill.size}}" %>
+					<%= index + 1 == @technology_skills.length ? "#{line}".html_safe : "#{line},".html_safe %>
+				<% end %>
 			]
 		}
 	]
