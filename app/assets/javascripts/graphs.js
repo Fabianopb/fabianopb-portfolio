@@ -130,7 +130,10 @@ var SUNBURST = (function () {
 
 		var y = d3.scale.sqrt().range([0, radius]);
 
-		var hslColors = [[240, 31, 25], [335, 84, 35], [21, 86, 69]];
+		// var hslColors = [[240, 31, 25], [335, 84, 35], [21, 86, 69]];
+		// var hslColors = [[0, 99, 64], [188, 100, 36], [45, 99, 70]];
+		// var hslColors = [[4, 99, 66], [52, 31, 77], [132, 56, 86]];
+		var hslColors = [[209, 43, 28], [0, 99, 64], [249, 8, 83]];
 
 		var partition = d3.layout.partition().value(function(d) { return d.size; });
 
