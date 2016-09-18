@@ -130,9 +130,6 @@ var SUNBURST = (function () {
 
 		var y = d3.scale.sqrt().range([0, radius]);
 
-		// var hslColors = [[240, 31, 25], [335, 84, 35], [21, 86, 69]];
-		// var hslColors = [[0, 99, 64], [188, 100, 36], [45, 99, 70]];
-		// var hslColors = [[4, 99, 66], [52, 31, 77], [132, 56, 86]];
 		var hslColors = [[209, 43, 28], [0, 99, 64], [249, 8, 83]];
 
 		var partition = d3.layout.partition().value(function(d) { return d.size; });
@@ -194,19 +191,26 @@ var SUNBURST = (function () {
 
 	  };
 
-	  var click = function(d) {
+	  var click = function(node) {
 		  svg.transition()
 	      .duration(750)
 	      .tween("scale", function() {
-	        var xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
-            yd = d3.interpolate(y.domain(), [d.y, 1]),
-            yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius]);
+	        var xd = d3.interpolate(x.domain(), [node.x, node.x + node.dx]),
+            yd = d3.interpolate(y.domain(), [node.y, 1]),
+            yr = d3.interpolate(y.range(), [node.y ? 20 : 0, radius]);
 	        return function(t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); };
 		    })
 		    .selectAll("path")
+		    .style("opacity", function(d) {
+		    	if(node.children) {
+		    		return node.children.indexOf(d) > -1 ? 1 : 0.15;
+		    	} else {
+		    		return node === d ? 1 : 0.15;
+		    	}
+		    })
 		    .attrTween("d", function(d) { return function() { return arc(d); }; });
 
-		  updateGraphLegend(d.children);
+		  updateGraphLegend(node.children);
 		};
 
 	 	var nodes = partition.nodes(data);
@@ -233,6 +237,9 @@ var SUNBURST = (function () {
       .attr("d", arc)
       .style("fill", function(d) { return d.color; })
       .style("stroke", "#FFF")
+      .style("opacity", function(d) {
+      	return d.depth === 1 ? 1 : 0.15;
+      })
       .on("click", click)
 	    .append("title")
       .text(function(d) { return d.name; });
