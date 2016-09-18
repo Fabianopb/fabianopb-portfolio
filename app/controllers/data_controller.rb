@@ -9,6 +9,9 @@ class DataController < ApplicationController
   	@business_skills = SpecificSkill.filter_category('Business')
   	@design_skills = SpecificSkill.filter_category('Design')
   	@technology_skills = SpecificSkill.filter_category('Technology')
+  	respond_to do |format|
+      format.json {}
+    end
   end
 
 end

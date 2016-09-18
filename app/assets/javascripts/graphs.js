@@ -1,4 +1,5 @@
 var BARCHART = (function() {
+	'use strict';
 
 	var triggerSkillsGraph = true;
 	var skillsData;
@@ -117,14 +118,13 @@ var BARCHART = (function() {
 })();
 
 var SUNBURST = (function () {
+	'use strict';
 
-	var drawSunburst = function() {
+	var drawSunburst = function(data) {
 
 		var width = 450,
 	    height = 450,
 	    radius = (Math.min(width, height) / 2) - 10;
-
-		var formatNumber = d3.format(",d");
 
 		var x = d3.scale.linear().range([0, 2 * Math.PI]);
 
@@ -146,42 +146,7 @@ var SUNBURST = (function () {
 		  .append("g")
 	    .attr("transform", "translate(" + width / 2 + "," + (height / 2) + ")");
 
-		d3.json("/data/sunburst.json", function(error, root) {
-		  if (error) {
-		  	throw error;
-		 	}
-
-		 	var nodes = partition.nodes(root);
-
-		 	var colorIndex = 0;
-		 	for (var i = 0, x = nodes.length; i < x; i++) {
-		 		if (nodes[i].depth === 0) {
-		 			nodes[i].color = "transparent";
-		 		}
-		 		else if (nodes[i].depth === 1) {
-		 			var hsl = hslColors[colorIndex];
-		 			nodes[i].color = "hsl(" + hsl[0] + "," + hsl[1] + "%," + hsl[2] + "%)";
-		 			for (var j = 0, y = nodes[i].children.length; j < y; j++) {
-		 				var lighting = 30 + 60 * (j / (y - 1));
-		 				nodes[i].children[j].color = "hsl(" + hsl[0] + "," + hsl[1] + "%," + lighting + "%)";
-		 			}
-		 			colorIndex++;
-		 		}
-		 	}
-
-		  svg.selectAll("path")
-	      .data(nodes)
-		    .enter().append("path")
-	      .attr("d", arc)
-	      .style("fill", function(d) { return d.color })
-	      .style("stroke", "#FFF")
-	      .on("click", click)
-		    .append("title")
-	      .text(function(d) { return d.name; });
-
-		});
-
-		function click(d) {
+	  var click = function(d) {
 		  svg.transition()
 	      .duration(750)
 	      .tween("scale", function() {
@@ -192,9 +157,36 @@ var SUNBURST = (function () {
 		    })
 		    .selectAll("path")
 		    .attrTween("d", function(d) { return function() { return arc(d); }; });
-		}
+		};
 
-		d3.select(self.frameElement).style("height", height + "px");
+	 	var nodes = partition.nodes(data);
+
+	 	var colorIndex = 0;
+	 	for (var i = 0, w = nodes.length; i < w; i++) {
+	 		if (nodes[i].depth === 0) {
+	 			nodes[i].color = "transparent";
+	 		}
+	 		else if (nodes[i].depth === 1) {
+	 			var hsl = hslColors[colorIndex];
+	 			nodes[i].color = "hsl(" + hsl[0] + "," + hsl[1] + "%," + hsl[2] + "%)";
+	 			for (var j = 0, z = nodes[i].children.length; j < z; j++) {
+	 				var lighting = 30 + 60 * (j / (z - 1));
+	 				nodes[i].children[j].color = "hsl(" + hsl[0] + "," + hsl[1] + "%," + lighting + "%)";
+	 			}
+	 			colorIndex++;
+	 		}
+	 	}
+
+	  svg.selectAll("path")
+      .data(nodes)
+	    .enter().append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return d.color; })
+      .style("stroke", "#FFF")
+      .on("click", click)
+	    .append("title")
+      .text(function(d) { return d.name; });
+
 	};
 
 	return {
@@ -204,6 +196,7 @@ var SUNBURST = (function () {
 })();
 
 var GETDATA = (function () {
+	'use strict';
 
 	window.onload = function() {
 
@@ -215,7 +208,20 @@ var GETDATA = (function () {
 		  data: "{}", 
 		  success: function (data) {
 		    BARCHART.drawSkills(data);
-		    SUNBURST.drawSunburst();
+		  },
+			error: function (error) {
+				console.log(error);
+		  }
+		});
+
+		$.ajax({
+		  type: "GET",
+		  contentType: "application/json; charset=utf-8",
+		  url: 'data/sunburst',
+		  dataType: 'json',
+		  data: "{}", 
+		  success: function (data) {
+		    SUNBURST.drawSunburst(data);
 		  },
 			error: function (error) {
 				console.log(error);
