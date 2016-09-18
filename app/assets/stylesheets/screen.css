@@ -223,6 +223,10 @@ section.skills article .back {
 	border-radius: 5px;
 }
 
+.toolset-title {
+	text-align: center;
+}
+
 
 section.skills article .level {
 	height: 25px;
@@ -397,6 +401,11 @@ footer .copyright {
 
 .scale-division {
 	stroke: #555;
+}
+
+.legend-text {
+	font-weight: 400;
+	font-size: 0.8em;
 }
 /***** MEDIA QUERIES *****/
 

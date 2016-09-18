@@ -146,6 +146,51 @@ var SUNBURST = (function () {
 		  .append("g")
 	    .attr("transform", "translate(" + width / 2 + "," + (height / 2) + ")");
 
+	  var updateGraphLegend = function(children) {
+
+	  	d3.select(".legend-container").selectAll("*").remove();
+
+	  	if(children) {
+	  		var lineHeight = 40;
+	  		var blockSide = 16;
+	  		var legendHeight = Math.ceil(children.length / 3) * lineHeight;
+
+		  	var legendSvg = d3.select(".legend-container").append("svg")
+			    .attr("width", width)
+			    .attr("height", legendHeight)
+				  .append("g");
+
+				var lineIndex = -1;
+				legendSvg.selectAll("rect")
+					.data(children)
+	    		.enter().append("rect")
+					.attr("width", blockSide)
+					.attr("height", blockSide)
+					.attr("x", function(d) {
+						lineIndex++;
+						lineIndex = lineIndex === 3 ? 0 : lineIndex;
+						return lineIndex * width / 3;
+					})
+					.attr("y", function(d, i) { return Math.floor((i) / 3) * lineHeight; })
+					.style("fill", function(d) { return d.color; });
+
+				lineIndex = -1;
+				legendSvg.selectAll(".legend-text")
+			  	.data(children)
+			  	.enter().append("text")
+			    .attr("class", "legend-text")
+		      .attr("x", function(d) {
+						lineIndex++;
+						lineIndex = lineIndex === 3 ? 0 : lineIndex;
+						return (blockSide + 5) + lineIndex * width / 3;
+					})
+		      .attr("y", function(d, i) { return Math.floor((i) / 3) * lineHeight; })
+		      .attr("dy", "1em")
+		      .text(function(d) { return d.name; });
+	  	}
+
+	  };
+
 	  var click = function(d) {
 		  svg.transition()
 	      .duration(750)
@@ -157,6 +202,8 @@ var SUNBURST = (function () {
 		    })
 		    .selectAll("path")
 		    .attrTween("d", function(d) { return function() { return arc(d); }; });
+
+		  updateGraphLegend(d.children);
 		};
 
 	 	var nodes = partition.nodes(data);
@@ -186,6 +233,8 @@ var SUNBURST = (function () {
       .on("click", click)
 	    .append("title")
       .text(function(d) { return d.name; });
+
+    updateGraphLegend(nodes[0].children);
 
 	};
 
