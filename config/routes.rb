@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'badges/index'
+
+  get 'badges/new'
+
+  get 'badges/edit'
+
+  get 'badges/delete'
+
   get 'specific_skills/new'
 
   get 'specific_skills/index'
