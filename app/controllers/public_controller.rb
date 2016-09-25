@@ -13,12 +13,12 @@ class PublicController < ApplicationController
   end
   
   def next_proj
-    @project = Project.where("id > ?", params[:id]).first
+    @project = Project.where("id > ? AND visibility = ?", params[:id], true).first
     redirect_to(:action => 'show', :id => @project.id)
   end
   
   def prev_proj
-    @project = Project.where("id < ?", params[:id]).last
+    @project = Project.where("id < ? AND visibility = ?", params[:id], true).last
     redirect_to(:action => 'show', :id => @project.id)
   end
   
