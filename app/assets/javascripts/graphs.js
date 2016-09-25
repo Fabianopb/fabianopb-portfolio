@@ -122,15 +122,15 @@ var SUNBURST = (function () {
 
 	var drawSunburst = function(data) {
 
-		var width = 450,
-	    height = 450,
+		var width = 350,
+	    height = 350,
 	    radius = (Math.min(width, height) / 2) - 10;
 
 		var x = d3.scale.linear().range([0, 2 * Math.PI]);
 
 		var y = d3.scale.sqrt().range([0, radius]);
 
-		var hslColors = [[209, 43, 28], [0, 99, 64], [249, 8, 83]];
+		var hslColors = [[209, 43, 28], [0, 99, 64], [174, 100, 29]];
 
 		var partition = d3.layout.partition().value(function(d) { return d.size; });
 
@@ -152,8 +152,9 @@ var SUNBURST = (function () {
 
 	  	if(children) {
 	  		var lineHeight = 40;
+	  		var columns = 2;
 	  		var blockSide = 16;
-	  		var legendHeight = Math.ceil(children.length / 3) * lineHeight;
+	  		var legendHeight = Math.ceil(children.length / columns) * lineHeight;
 
 		  	var legendSvg = d3.select(".legend-container").append("svg")
 			    .attr("width", width)
@@ -168,10 +169,10 @@ var SUNBURST = (function () {
 					.attr("height", blockSide)
 					.attr("x", function(d) {
 						lineIndex++;
-						lineIndex = lineIndex === 3 ? 0 : lineIndex;
-						return lineIndex * width / 3;
+						lineIndex = lineIndex === columns ? 0 : lineIndex;
+						return lineIndex * width / columns;
 					})
-					.attr("y", function(d, i) { return Math.floor((i) / 3) * lineHeight; })
+					.attr("y", function(d, i) { return Math.floor((i) / columns) * lineHeight; })
 					.style("fill", function(d) { return d.color; });
 
 				lineIndex = -1;
@@ -181,10 +182,10 @@ var SUNBURST = (function () {
 			    .attr("class", "legend-text")
 		      .attr("x", function(d) {
 						lineIndex++;
-						lineIndex = lineIndex === 3 ? 0 : lineIndex;
-						return (blockSide + 5) + lineIndex * width / 3;
+						lineIndex = lineIndex === columns ? 0 : lineIndex;
+						return (blockSide + 5) + lineIndex * width / columns;
 					})
-		      .attr("y", function(d, i) { return Math.floor((i) / 3) * lineHeight; })
+		      .attr("y", function(d, i) { return Math.floor((i) / columns) * lineHeight; })
 		      .attr("dy", "1em")
 		      .text(function(d) { return d.name; });
 	  	}
