@@ -3,27 +3,27 @@
 </header>
 
 <div class="section">
-    <%= link_to("<< Back to admin index", :controller => 'access', :class => 'top-link') %>
-    <%= link_to("Add new badge", :action => 'new', :class => 'top-link') %>
-    
-    <table>
-        <tr>
-          <th>Name</th>
-          <th>Image</th>
-          <th>Link</th>
-          <th>Actions</th>
-        </tr>
-        <% @badges.each do |badge| %>
-        <tr>
-        		<td><%= badge.name %></td>
-            <td><%= badge.image_url %></td>
-            <td><%= badge.link %></td>
-            <td>
-                <%= link_to("Edit", {:action => 'edit', :id => badge.id}) %>
-                <%= link_to("Delete", {:action => 'delete', :id => badge.id}) %>
-            </td>
-        </tr>
-        <% end %>
-       
-    </table>
+  <%= link_to("<< Back to admin index", :controller => 'access', :class => 'top-link') %>
+  <%= link_to("Add new badge", :action => 'new', :class => 'top-link') %>
+  
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Link</th>
+      <th>Actions</th>
+    </tr>
+    <% @badges.each do |badge| %>
+    <tr>
+    	<td><%= badge.name %></td>
+      <td><%= image_tag badge.image_url.url, :class => 'badge-image' %></td>
+      <td><%= link_to badge.link, badge.link, target: '_blank' %></td>
+      <td>
+          <%= link_to("Edit", {:action => 'edit', :id => badge.id}) %>
+          <%= link_to("Delete", {:action => 'delete', :id => badge.id}) %>
+      </td>
+    </tr>
+    <% end %>
+     
+  </table>
 </div>

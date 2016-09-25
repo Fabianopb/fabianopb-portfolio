@@ -415,6 +415,10 @@ footer .copyright {
 	font-weight: 400;
 	font-size: 0.8em;
 }
+
+.badge-image {
+	width: 100px;
+}
 /***** MEDIA QUERIES *****/
 
 @media screen and (max-width: 850px) {
