@@ -1,2 +1,15 @@
-<h1>Badges#delete</h1>
-<p>Find me in app/views/badges/delete.html.erb</p>
+<header>
+    <h1>Delete badge</h1>
+</header>
+
+<div class="section">
+    <%= form_for(:badge, :url => {:action => 'destroy', :id => @badge.id}) do |f| %>
+    
+        <p>Are you sure you want do delete the badge <%= @badge.name %>?</p>
+        
+        <div class="form-btn">
+            <%= submit_tag("Delete badge") %>
+        </div>
+        
+    <% end %>
+</div>

@@ -1,2 +1,15 @@
-<h1>Badges#new</h1>
-<p>Find me in app/views/badges/new.html.erb</p>
+<header>
+    <h1>Add new badge</h1>
+</header>
+
+<div class="section">
+    <%= form_for(:badge, :url => {:action => 'create'}) do |f| %>
+    
+        <%= render(:partial => "form", :locals => {:f => f}) %>
+        
+        <div class="form-btn">
+            <%= submit_tag("Create badge") %>
+        </div>
+    
+    <% end %>
+</div>

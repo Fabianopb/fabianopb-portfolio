@@ -1,2 +1,15 @@
-<h1>Badges#edit</h1>
-<p>Find me in app/views/badges/edit.html.erb</p>
+<header>
+    <h1>Edit badge</h1>
+</header>
+
+<div class="section">
+    <%= form_for(:badge, :url => {:action => 'update', :id => @badge.id}) do |f| %>
+    
+        <%= render(:partial => "form", :locals => {:f => f}) %>
+        
+        <div class="form-btn">
+            <%= submit_tag("Update badge") %>
+        </div>
+        
+    <% end %>
+</div>
