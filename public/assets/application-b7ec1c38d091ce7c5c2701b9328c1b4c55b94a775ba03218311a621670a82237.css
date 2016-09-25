@@ -81,6 +81,10 @@ td {
 	height: 315px;
 }
 
+.badge-image {
+	width: 100px;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
 
 /****** BODY ******/
@@ -129,8 +133,8 @@ hr {
 /****** NAVIGATION ******/
 
 .navigation {
-	background-color: rgba(0, 0, 0, .65);
-	position: absolute; top: 0px; left: 0px;
+	background-color: rgba(23, 41, 58, 1);
+	position: fixed; top: 0px; left: 0px;
 	padding: 0;
 	width: 100%; height: 60px;
 	z-index: 1;
@@ -138,7 +142,7 @@ hr {
 }
 
 nav {
-	margin: auto; max-width: 1000px;
+	margin: auto; 
 	padding: 0;
 	width: 100%;
 	z-index: 1;
@@ -177,12 +181,12 @@ nav ul li a:visited {
 /****** HEADER ******/
 
 .index {
-	height: 440px; position: relative;
+	height: 650px; position: relative;
 }
 
 .background {
-	width: 100%; height: 440px;
-	background: #284865 url(/assets/header3_1600.png) no-repeat center bottom;
+	width: 100%; height: 650px;
+	background: #284865 url(/assets/header4_1600.png) no-repeat center bottom;
 	position: absolute; left: 0; top: 0;
 }
 
@@ -192,28 +196,28 @@ nav ul li a:visited {
 
 header .logo {
 	z-index: 2;
-	position: absolute; 
+	position: fixed; 
 	top: 0; left: 0; padding: 0px 20px;
 	color: #fff; text-decoration: none; font-weight: 400; font-size: 1.7em; line-height: 60px;
 }
 
 header .hero {
 	position: absolute; 
-	margin: auto; width: 70%; top: 130px; left: 15%;
+	margin: auto; width: 80%; top: 190px; left: 10%;
 	text-align: center;
 	color: #fff;
 }
 
 header div p {
 	
-	font-size: 1.2em;
+	font-size: 1.5em;
 }
 
 header div a.show-btn {
 	position: relative; top: 20px;
-	font-size: 1.4em; text-decoration: none; color: #fff;
-	border-radius: 20px; border: 1px solid #fff; 
-	padding: 4px 30px;
+	font-size: 1.8em; text-decoration: none; color: #fff;
+	border-radius: 25px; border: 1px solid #fff; 
+	padding: 5px 40px;
 	transition: background-color .5s;
 }
 
@@ -280,7 +284,7 @@ section.about div article {
 /****** SECTION SKILLS ******/
 
 section.skills article {
-	padding: 0 80px 40px 80px;
+	padding: 0 80px;
 }
 
 section.skills article table {
@@ -303,6 +307,18 @@ section.skills article .back {
 	height: 25px;
 	background: #D1D0D7;
 	border-radius: 5px;
+}
+
+.toolset-title {
+	text-align: center;
+	font-size: 1.6em;
+	font-weight: 700;
+}
+
+.toolset-subtitle {
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 0.9em;
 }
 
 
@@ -435,13 +451,85 @@ footer .copyright {
 	padding: 18px 0; margin: 0;
 }
 
+/* NEW SKILLS CSS FOR D3 ELEMENT */
+/*
+.skill-empty-column {
+	display: inline-flex;
+}
+*/
+
+.skills-flex-container {
+	display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.skills-graph-container {
+	justify-content: center;
+}
+
+.back-bar {
+	fill: #D1D0D7;
+}
+
+.data-bar {
+	fill: #284865;
+}
+
+.skill-name {
+	fill: #FFF;
+	font-weight: 400;
+}
+
+.skill-value {
+	fill: #8E8F98;
+	font-weight: 400;
+	font-size: 0.8em;
+}
+
+.skill-scale {
+	fill: #555;
+	font-weight: 700;
+	font-size: 0.75em;
+}
+
+.scale-division {
+	stroke: #555;
+}
+
+.legend-text {
+	font-weight: 400;
+	font-size: 0.8em;
+}
+
+.badges-wrapper {
+	width: 100%;
+}
+
+.badge-container {
+	display: inline-block;
+	width: 32%;
+	text-align: center;
+	margin: 10px 0 0 0;
+}
+
+.badge-name {
+	margin: 6px 0;
+	color: #555;
+	font-size: 0.8em;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.badge-image {
+	width: 75%;
+	max-width: 120px;
+}
 /***** MEDIA QUERIES *****/
 
 @media screen and (max-width: 850px) {
 	
-	header .hero { top: 110px; }
-	
-	header div p { font-size: 1.1em; }
+	header div p { font-size: 1.3em; }
 	
 	section { padding: 0 40px; }
 	
@@ -458,6 +546,8 @@ footer .copyright {
 }
 
 @media screen and (max-width: 700px) {
+	
+	nav ul li a { width: 90px; font-size: 1em; }
 	
 	section.about div { position: relative; }
 	
@@ -491,17 +581,23 @@ footer .copyright {
 
 @media screen and (max-width: 595px) {
 	
-	header .hero { width: 80%; left: 10%; }
+	header .logo { display: none; }
 	
-	header .logo { font-size: 1.6em; }
+	header div a.show-btn { font-size: 1.4em; border-radius: 20px; padding: 4px 30px; }
 	
-	nav ul li a { width: 80px; font-size: 1em; }
+	.navigation { height: 50px; }
 	
-	header div p { font-size: .9em; }
+	nav ul li { float: right; width: 25%; }
+	
+	nav ul li a { width: 100%; font-size: .9em; padding: 15px 0; }
+	
+	header div p { font-size: 1em; }
 	
 	section.project-details .video { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; margin-bottom: 20px;}
 
 	section.project-details .video iframe {	position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+	.badge-container { width: 49%; }
 	
 }
 
@@ -511,25 +607,15 @@ footer .copyright {
 	
 	.background { height: 415px; background: #284865 url(/assets/header3_500.png) no-repeat center bottom; }
 	
-	.navigation { position: fixed; background-color: rgba(21, 30, 31, .95); height: 50px; }
-	
-	nav ul li { float: right; width: 33%; }
-	
-	nav ul li a { width: 100%; font-size: .9em; padding: 15px 0; }
-	
-	
 	h1 { font-size: 1.6em; }
 	
 	h2 { font-size: 1.2em; }
-	
 	
 	.show {	height: 20px; }
 
 	header .hero { top: 80px; }
 	
-	header .logo { display: none; }
-	
-	header div a.show-btn { top: 40px; }
+	header div a.show-btn { top: 10px; }
 	
 	section { padding: 0 20px; }
 	
