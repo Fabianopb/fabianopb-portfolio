@@ -62,8 +62,16 @@
 	</article>
 
 	<article>
-		
-		<div class="badges_wrapper"></div>
+
+		<div class="toolset-title">Code School Badges</div>
+		<div class="badges-wrapper">
+			<% @badges.each do |badge| %>
+				<div class="badge-container">
+					<div class="badge-name"><%= badge.name %></div>
+					<%= link_to image_tag(badge.image_url.url, :class => 'badge-image'), badge.link, {target: '_blank'} %>
+				</div>
+			<% end %>
+		</div>
 		
 	</article>
 

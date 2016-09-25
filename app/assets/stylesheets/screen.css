@@ -416,8 +416,28 @@ footer .copyright {
 	font-size: 0.8em;
 }
 
+.badges-wrapper {
+	width: 100%;
+}
+
+.badge-container {
+	display: inline-block;
+	width: 32%;
+	text-align: center;
+	margin: 10px 0 0 0;
+}
+
+.badge-name {
+	margin: 6px 0;
+	color: #555;
+	font-size: 0.8em;
+	text-decoration: none;
+	font-weight: 700;
+}
+
 .badge-image {
-	width: 100px;
+	width: 75%;
+	max-width: 120px;
 }
 /***** MEDIA QUERIES *****/
 
@@ -490,6 +510,8 @@ footer .copyright {
 	section.project-details .video { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; margin-bottom: 20px;}
 
 	section.project-details .video iframe {	position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+	.badge-container { width: 49%; }
 	
 }
 
