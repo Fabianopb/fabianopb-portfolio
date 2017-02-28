@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925115734) do
+ActiveRecord::Schema.define(version: 20170228192034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160925115734) do
     t.string  "video"
     t.string  "duration"
     t.boolean "visibility", default: false
+    t.string  "tag",        default: ""
   end
 
   create_table "skills", force: :cascade do |t|
