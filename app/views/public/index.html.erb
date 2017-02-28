@@ -90,6 +90,7 @@
 		<aside>
 			<%= image_tag(project.thumbnail, :alt => project.title) %>
 			<%= link_to(raw('<div class="trans"><p>' + project.caption + '</p></div>'), {:action => 'show', :id=> project.id}) %>
+			<div class="project-tag">Coding</div>
 		</aside>
 		
 		<% end %>

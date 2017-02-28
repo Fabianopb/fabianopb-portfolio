@@ -287,6 +287,23 @@ section.work aside .trans:hover {
 	color: rgba(255, 255, 255, 1);
 }
 
+section.work aside .project-tag {
+	position: absolute; left: 6px; bottom: 6px;
+	background-color: #FCFBE3;
+	padding: 2px 14px 2px 22px;
+  border-radius: 14px;
+}
+
+section.work aside .project-tag:after {
+	content: '';
+	display: block;
+	position: absolute; left: 8px; bottom: 10px;
+	width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: #cfcd7d;
+}
+
 /****** SECTION PROJECT-DETAILS ******/
 
 section.project-details {
