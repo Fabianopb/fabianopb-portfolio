@@ -15,3 +15,6 @@
 
 # Ignore local uploads
 /public/uploads/*
+
+# Ignore local assets
+/public/assets/*
